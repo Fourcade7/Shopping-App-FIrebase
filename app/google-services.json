@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "204633476988",
+    "firebase_url": "https://fir-upload-image-java.firebaseio.com",
+    "project_id": "fir-upload-image-java",
+    "storage_bucket": "fir-upload-image-java.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:204633476988:android:4910db235e0e37e927def9",
+        "android_client_info": {
+          "package_name": "com.example.firebaseuploadimagejava"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "204633476988-6lstmpu8sjh0sn4bhhu84l9l1a34lppn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNEUMlmTgA5jEWrP9kPX1YIlrQVPaLORs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "204633476988-6lstmpu8sjh0sn4bhhu84l9l1a34lppn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
