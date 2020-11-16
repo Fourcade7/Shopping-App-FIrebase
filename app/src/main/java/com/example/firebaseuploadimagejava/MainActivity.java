@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Upload in progress", Toast.LENGTH_SHORT).show();
                 } else {
 
-                    uploadFile("uzb");
+                    uploadFile("uzb3");
 
                 }
             }
