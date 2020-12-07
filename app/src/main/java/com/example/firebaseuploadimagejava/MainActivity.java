@@ -39,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
     private Button mButtonUpload;
     private TextView mTextViewShowUploads;
     private EditText mEditTextFileName;
+    private EditText mEditTextFileName2;
+    private EditText mEditTextFileName3;
     private ImageView mImageView;
     private ProgressBar mProgressBar;
     private ProgressBar mProgressBar2;
@@ -60,10 +62,14 @@ public class MainActivity extends AppCompatActivity {
         mButtonUpload = findViewById(R.id.button_upload);
         mTextViewShowUploads = findViewById(R.id.text_view_show_uploads);
         mEditTextFileName = findViewById(R.id.edit_text_file_name);
+        mEditTextFileName2 = findViewById(R.id.edit_text_file_name2);
+        mEditTextFileName3 = findViewById(R.id.edit_text_file_name3);
         mImageView = findViewById(R.id.image_view);
         mProgressBar = findViewById(R.id.progress_bar);
         mProgressBar2 = findViewById(R.id.progress_bar2);
+
         mProgressBar.setVisibility(View.INVISIBLE);
+        mProgressBar2.setVisibility(View.INVISIBLE);
 
 
 
@@ -80,11 +86,17 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                // mEditTextFileName.requestFocus()
                 mProgressBar.setVisibility(View.VISIBLE);
-                if (mUploadTask != null && mUploadTask.isInProgress()) {
+                if (mUploadTask != null && mUploadTask.isInProgress() ) {
                     Toast.makeText(MainActivity.this, "Upload in progress", Toast.LENGTH_SHORT).show();
                 } else {
 
-                    uploadFile("uzb3");
+                    if (mEditTextFileName.getText().toString().equals("")){
+                        Toast.makeText(MainActivity.this, "Zb uje", Toast.LENGTH_SHORT).show();
+                    }else
+                    {
+                        uploadFile(mEditTextFileName.getText().toString(),mEditTextFileName2.getText().toString(),mEditTextFileName3.getText().toString());
+
+                    }
 
                 }
             }
@@ -119,10 +131,10 @@ public class MainActivity extends AppCompatActivity {
         MimeTypeMap mime = MimeTypeMap.getSingleton();
         return mime.getExtensionFromMimeType(cR.getType(uri));
     }
-    private void uploadFile(String uploadpath) {
+    private void uploadFile(String uploadpath,String productname,String order) {
         mStorageRef = FirebaseStorage.getInstance().getReference(uploadpath);
         mDatabaseRef = FirebaseDatabase.getInstance().getReference(uploadpath);
-        if (mImageUri != null) {
+        if (mImageUri != null && !mEditTextFileName.getText().toString().equals("")) {
 
             StorageReference filereference=mStorageRef.child(System.currentTimeMillis()+"."+getFileExtension(mImageUri));
 
@@ -133,11 +145,12 @@ public class MainActivity extends AppCompatActivity {
                    @Override
                    public void onSuccess(Uri uri) {
                         String uploadId = mDatabaseRef.push().getKey();
-                        Upload upload=new Upload(mEditTextFileName.getText().toString(),"7000",uri.toString(),uploadId);
+                        Upload upload=new Upload(productname,order,uri.toString(),uploadId);
 
                        mDatabaseRef.child(uploadId).setValue(upload);
                         // mDatabaseRef.child(Objects.requireNonNull(mDatabaseRef.push().getKey())).setValue(upload);
                        mProgressBar.setVisibility(View.INVISIBLE);
+                       mProgressBar2.setVisibility(View.VISIBLE);
                        Timer timer=new Timer();
 
                        TimerTask tt=new TimerTask() {
@@ -151,6 +164,7 @@ public class MainActivity extends AppCompatActivity {
                                a=0;
                                mProgressBar2.setProgress(a);
                                ts.show();
+                               mProgressBar2.setVisibility(View.INVISIBLE);
                            }
                            }
                        };
@@ -163,7 +177,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         } else {
-            Toast.makeText(this, "No file selected", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Rasm tanlab nom yoz", Toast.LENGTH_SHORT).show();
         }
     }
 }

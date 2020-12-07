@@ -1,6 +1,7 @@
 package com.example.firebaseuploadimagejava;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -49,6 +50,10 @@ public class MainActivity2 extends AppCompatActivity {
         mUploads = new ArrayList<>();
         mUploads2 = new ArrayList<>();
 
+
+
+
+
         mRecyclerView = findViewById(R.id.recyclerview);
         mRecyclerView.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
@@ -56,12 +61,16 @@ public class MainActivity2 extends AppCompatActivity {
 
         mRecyclerView2 = findViewById(R.id.recyclerview2);
         mRecyclerView2.setHasFixedSize(true);
-       mRecyclerView2.setLayoutManager(new GridLayoutManager(this,2));
+       mRecyclerView2.setLayoutManager(new GridLayoutManager(this,1));
         readtodatabase("uploads");
-        readtodatabase2("products");
+        readtodatabase2("Mevalar");
 
 
     }
+
+
+
+
     public void readtodatabase2(String readpath2){
         mStorage2 = FirebaseStorage.getInstance();
         mDatabaseRef2 = FirebaseDatabase.getInstance().getReference(readpath2);

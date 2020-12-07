@@ -4,20 +4,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:background="@drawable/prpink"
    tools:context=".MainActivity2">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Categories"
+        android:gravity="center"
+        android:textSize="15dp"
+        android:padding="5dp"
+        android:textColor="@color/white"
+        android:id="@+id/txtvcategory"
+
+        ></TextView>
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-
+       android:layout_below="@+id/txtvcategory"
         android:layout_height="wrap_content"
 
         android:id="@+id/recyclerview"></androidx.recyclerview.widget.RecyclerView>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Products"
+        android:gravity="center"
+        android:textSize="15dp"
+        android:padding="5dp"
+        android:layout_below="@+id/recyclerview"
+        android:textColor="@color/white"
+        android:id="@+id/txtvcategory2"
 
+        ></TextView>
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_below="@+id/recyclerview"
-        android:layout_marginTop="35dp"
+        android:layout_below="@+id/txtvcategory2"
+
         android:layout_height="wrap_content"
         android:id="@+id/recyclerview2"></androidx.recyclerview.widget.RecyclerView>
 

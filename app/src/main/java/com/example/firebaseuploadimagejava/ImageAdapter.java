@@ -44,15 +44,28 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.MyviewHolder
         holder.textView1.setText(upload.getmName());
         holder.textView2.setText(upload.getmOrder());
 
-        Picasso.get().load(upload.getmImageUrl()).placeholder(R.mipmap.ic_launcher).into(holder.imageView);
+        Picasso.get().load(upload.getmImageUrl()).placeholder(R.drawable.badge).into(holder.imageView);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 MainActivity2 activity= (MainActivity2) v.getContext();
-                activity.Delteitem(upload.getmKey(),upload.getmImageUrl());
+               // activity.readtodatabase2();
+                if (upload.getmName().equals("Mevalar")){
+                    activity.readtodatabase2("Mevalar");
+                }
+                if (upload.getmName().equals("Sabzavotlar")){
+                    activity.readtodatabase2("Sabzavotlar");
+                }
+                if (upload.getmName().equals("Non")){
+                    activity.readtodatabase2("Non");
+                }
 
-                Toast.makeText(context,upload.getmKey()+upload.getmImageUrl(),Toast.LENGTH_SHORT).show();
+
+
+
+
+                Toast.makeText(context,upload.getmName(),Toast.LENGTH_SHORT).show();
 
             }
         });

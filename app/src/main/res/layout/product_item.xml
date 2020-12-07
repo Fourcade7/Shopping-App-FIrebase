@@ -11,40 +11,47 @@
         android:layout_height="wrap_content"
         app:cardCornerRadius="5dp"
         app:cardUseCompatPadding="true"
-        app:cardElevation="10dp">
+        app:cardElevation="8dp">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            >
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:src="@drawable/ic_launcher_background"
-
+                android:scaleType="centerCrop"
                 android:id="@+id/imgviewproduct"
                 ></ImageView>
             <TextView
+                android:layout_marginTop="2dp"
+                android:typeface="sans"
+              android:layout_below="@+id/imgviewproduct"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Productname"
                 android:id="@+id/txtvproduct"
-                android:layout_margin="5dp"></TextView>
+                android:layout_marginLeft="7dp"></TextView>
             <TextView
+               android:typeface="monospace"
+                android:layout_below="@id/txtvproduct"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="7dp"
                 android:text="Productname"
                 android:id="@+id/txtvproduct2"
-                android:layout_margin="5dp"></TextView>
-            <ImageButton
-                android:layout_width="35dp"
-                android:layout_gravity="end"
-                android:layout_marginRight="5dp"
+               ></TextView>
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_alignParentEnd="true"
+              android:layout_below="@+id/imgviewproduct"
+               android:layout_margin="5dp"
                 android:background="@color/white"
                 android:src="@drawable/ic_baseline_add_shopping_cart_24"
-                android:layout_height="35dp"></ImageButton>
-        </LinearLayout>
+                android:layout_height="35dp"></ImageView>
+        </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
 

@@ -39,13 +39,13 @@ public class ProductAdapter  extends RecyclerView.Adapter<ProductAdapter.Myviewh
 
         holder.textView1.setText(upload.getmName());
         holder.textView2.setText(upload.getmOrder());
-        Picasso.get().load(upload.getmImageUrl()).placeholder(R.mipmap.ic_launcher).into(holder.imageView);
+        Picasso.get().load(upload.getmImageUrl()).placeholder(R.drawable.badge).into(holder.imageView);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 MainActivity2 activity= (MainActivity2) v.getContext();
-                activity.Delteitem2(upload.getmKey(),upload.getmImageUrl());
+                //activity.Delteitem2(upload.getmKey(),upload.getmImageUrl());
 
                 Toast.makeText(context,upload.getmKey()+upload.getmImageUrl(),Toast.LENGTH_SHORT).show();
 
